@@ -1,0 +1,8 @@
+cd ./build/
+rm CMakeCache.txt
+cmake ../../j-pet-framework-examples
+make -j 4
+cd ..
+python3 run.py infile6.txt
+root -l script_plot.cpp
+
