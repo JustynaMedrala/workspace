@@ -1,6 +1,6 @@
 {
     "EventFinder_EventTime_float":20000.0,
-   "EventFinder_UseCorruptedHits_bool":false,
+    "EventFinder_UseCorruptedHits_bool":false,
     "EventFinder_MinEventMultiplicity_int":2,
     "EventFinder_EventTime_float":200000.0,
     "GeantParser_MaxTimeWindow_double":0.0,
@@ -17,5 +17,7 @@
     "GeantParser_EnergySmearingFunction_std::string":"[&](double *x, double *p){double sigma = p[2] * 0.044 / sqrt(p[2] / 1000.);return TMath::Gaus(*x, p[2], sigma);}",
     "GeantParser_TimeSmearingParameters_std::vector<double>":[220.0, 200.0, 340.0],
     "GeantParser_TimeSmearingFunctionLimits_std::vector<double>":[-2000.0, 2000.0],
-    "GeantParser_TimeSmearingFunction_std::string":"[&](double *x, double *p){double sigma = p[4];if(p[2] < p[5]){sigma = sigma / sqrt(p[2] / p[6]);} return TMath::Gaus(*x, p[3], sigma);}"
+    "GeantParser_TimeSmearingFunction_std::string":"[&](double *x, double *p){double sigma = p[4];if(p[2] < p[5]){sigma = sigma / sqrt(p[2] / p[6]);} return TMath::Gaus(*x, p[3], sigma);}",
+    "Deex_Categorizer_TOT_Cut_Min_float":650.0,
+    "Deex_Categorizer_TOT_Cut_Max_float":1000000.0
 }
