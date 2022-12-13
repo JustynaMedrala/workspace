@@ -11,6 +11,8 @@ void script_plot()
    TH1D *hist_3Gamma_energy, *hist_3Gamma_time;
    TH1D *hist_Prompt_energy, *hist_Prompt_time;
    TH1D *hist_Scattered_energy, *hist_Scattered_time;
+   TH2D *hist_ScatterAngle_PrimaryTOT, *hist_ScatterAngle_PrimaryTOT_before_cut;
+   TH2D *hist_ScatterAngle_ScatterTOT, *hist_ScatterAngle_ScatterTOT_before_cut;
 
    mydirectory->GetObject("All_energy", hist_All_energy);
    mydirectory->GetObject("All_time", hist_All_time);
@@ -22,9 +24,13 @@ void script_plot()
    mydirectory->GetObject("Prompt_time", hist_Prompt_time);
    mydirectory->GetObject("Scattered_energy", hist_Scattered_energy);
    mydirectory->GetObject("Scattered_time", hist_Scattered_time);
+   mydirectory->GetObject("ScatterAngle_PrimaryTOT", hist_ScatterAngle_PrimaryTOT);
+   mydirectory->GetObject("ScatterAngle_ScatterTOT", hist_ScatterAngle_ScatterTOT);
+   mydirectory->GetObject("ScatterAngle_PrimaryTOT_before_cut", hist_ScatterAngle_PrimaryTOT_before_cut);
+   mydirectory->GetObject("ScatterAngle_ScatterTOT_before_cut", hist_ScatterAngle_ScatterTOT_before_cut);
 
 
-   if (!hist_All_energy && !hist_All_time && !hist_2Gamma_energy && !hist_2Gamma_time) {
+   if (!hist_ScatterAngle_PrimaryTOT && !hist_ScatterAngle_ScatterTOT) {
       std::cout << " doesn't contain histogram" << std::endl;
       return -2;
    }
@@ -49,5 +55,13 @@ void script_plot()
    c.SaveAs("Scattered_energy.png");
    hist_Scattered_time->Draw();
    c.SaveAs("Scattered_time.png");
-
+   hist_ScatterAngle_PrimaryTOT->Draw();
+   c.SaveAs("Primary.png");   
+   //hist_ScatterAngle_PrimaryTOT_before_cut->Draw();
+   //c.SaveAs("Primary_before_cut.png");
+   hist_ScatterAngle_ScatterTOT->Draw();
+   c.SaveAs("Scatter.png");
+   //hist_ScatterAngle_ScatterTOT_before_cut->Draw();
+   //c.SaveAs("Scatter_before_cut.png");
 }
+
